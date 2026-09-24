@@ -1,25 +1,27 @@
 /* Landing: hero + CTA */
 
 .hero {
-  display: flex;
-  align-items: center;
-  gap: var(--gap-8);
   padding: var(--gap-10) var(--gap-12);
   background: var(--color-white);
+}
+
+.hero .container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: var(--gap-8);
 }
 
 .hero-content {
   display: flex;
   flex-direction: column;
+  align-items: flex-start;
   gap: var(--gap-5);
-  max-width: 560px;
-  flex: 1;
 }
 
 .hero-mock {
-  width: 584px;
-  height: 478px;
-  flex-shrink: 0;
+  width: 100%;
+  aspect-ratio: 5 / 4;
   background: var(--color-primary);
   border: 1px solid var(--color-border);
   box-shadow: var(--box-shadow-card);

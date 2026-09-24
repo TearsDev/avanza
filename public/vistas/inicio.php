@@ -1,13 +1,15 @@
 <section class="hero">
-    <div class="hero-content">
-        <h1 class="h1">Centralizá turnos, seguimiento clínico y coordinación en un solo lugar</h1>
-        <p class="text text-lg text-muted">AVANZA reemplaza WhatsApp, planillas sueltas y comunicaciones dispersas por una plataforma pensada para familias, terapeutas y administrativos. Todo el recorrido del niño queda ordenado, visible y fácil de seguir.</p>
-        <div class="row">
-            <a class="btn btn-primary btn-lg" href="#demo">Solicitá una demo</a>
-            <a class="btn btn-outline btn-lg" href="#como-usar">Ver video</a>
+    <div class="container">
+        <div class="hero-content">
+            <h1 class="h1">Centralizá turnos, seguimiento clínico y coordinación en un solo lugar</h1>
+            <p class="text text-lg text-muted">AVANZA reemplaza WhatsApp, planillas sueltas y comunicaciones dispersas por una plataforma pensada para familias, terapeutas y administrativos. Todo el recorrido del niño queda ordenado, visible y fácil de seguir.</p>
+            <div class="row">
+                <a class="btn btn-primary btn-lg" href="#demo">Solicitá una demo</a>
+                <a class="btn btn-outline btn-lg" href="#como-usar">Ver video</a>
+            </div>
         </div>
+        <div class="hero-mock" role="img" aria-label="Vista previa de la plataforma AVANZA"></div>
     </div>
-    <div class="hero-mock" role="img" aria-label="Vista previa de la plataforma AVANZA"></div>
 </section>
 
 <section class="section section-bg" id="actores">
