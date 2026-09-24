@@ -1,11 +1,5 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Avanza</title>
-</head>
-<body>
-    <?php include 'layout/layout.php'; ?>
-</body>
-</html>
+<?php
+$titulo = 'AVANZA — Inicio';
+$css_page = 'landing';
+$contenido = __DIR__ . '/vistas/inicio.php';
+include __DIR__ . '/layout/layout.php';
