@@ -1,0 +1,26 @@
+.como-usar-hero {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 64px 32px;
+    gap: var(--gap-2);
+    text-align: center;
+    background: linear-gradient(180deg, #4A9B8E 0%, #193531 100%);
+}
+
+.como-usar-hero .h1 {
+    max-width: 705px;
+    font-size: 48px;
+    line-height: 60px;
+    color: var(--color-white);
+}
+
+.como-usar-hero-sub {
+    max-width: 672px;
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 30px;
+    color: var(--color-white);
+}

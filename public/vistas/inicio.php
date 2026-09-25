@@ -4,14 +4,13 @@
             <h1 class="h1">Centralizá turnos, seguimiento clínico y coordinación en un solo lugar</h1>
             <p class="text text-lg text-muted">AVANZA reemplaza WhatsApp, planillas sueltas y comunicaciones dispersas por una plataforma pensada para familias, terapeutas y administrativos. Todo el recorrido del niño queda ordenado, visible y fácil de seguir.</p>
             <div class="row">
-                <a class="btn btn-primary btn-lg" href="#demo">Solicitá una demo</a>
-                <a class="btn btn-outline btn-lg" href="#como-usar">Ver video</a>
+                <a class="btn btn-primary btn-lg" href="/login.php">Iniciar sesión</a>
+                <a class="btn btn-outline btn-lg" href="/contacto">Contacto</a>
             </div>
         </div>
         <div class="hero-mock" role="img" aria-label="Vista previa de la plataforma AVANZA"></div>
     </div>
 </section>
-
 <section class="section section-bg" id="actores">
     <div class="container">
         <div class="section-header">
@@ -128,13 +127,13 @@
     </div>
 </section>
 
-<section class="cta" id="demo">
+<section class="cta">
     <div class="cta-copy">
         <h2 class="h2">Empezá a ordenar turnos, seguimiento y coordinación en un solo lugar</h2>
-        <p class="text text-lg text-light">Solicitá una demo y mostramos cómo AVANZA puede adaptarse al flujo de tu centro.</p>
+        <p class="text text-lg text-light">contactanos y te mostramos cómo AVANZA puede adaptarse al flujo de tu centro.</p>
     </div>
     <div class="row row-center">
-        <a class="btn btn-primary btn-lg" href="mailto:hola@avanza.app">Solicitá una demo</a>
-        <a class="btn btn-light btn-lg" href="#funcionalidades">Ver funcionalidades</a>
+        <a class="btn btn-primary btn-lg" href="/contacto">Contacto</a>
+        <a class="btn btn-light btn-lg" href="/como-usar">Ver funcionalidades</a>
     </div>
 </section>
