@@ -24,3 +24,63 @@
     line-height: 30px;
     color: var(--color-white);
 }
+
+.como-usar-contenido {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: var(--gap-9), var(--gap-12) var(gap--10);
+    gap: var(--gap-7);
+    max-width: var(--container-max);
+    margin-inline:auto;
+}
+
+.como-usar-intro {
+    display: flex;
+    flex-direction: column;
+    gap: var(--gap-3);
+}
+
+.como-usar-intro .h2 {
+    font-size: 36px;
+    line-height: 45px;
+}
+
+.como-usar-intro .text-lg {
+    max-width: 1200px;
+    font-size: 18px;
+    line-height: 28px;
+}
+
+.como-usar-card-texto {
+    display: flex;
+    flex-direction: column;
+    gap: var(--gap-3);
+    flex: 1;
+}
+
+.como-usar-card-titulo {
+    display: flex;
+    align-items: center;
+    gap: var(--gap-2);
+}
+
+.como-usar-card-titulo .h3 {
+    font-size: 28px;
+    line-height: 35px;
+}
+
+.como-usar-badge {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 18px;
+    color: var(--color-white);
+    background: var(--color-primary);
+}
+
