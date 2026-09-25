@@ -1,6 +1,6 @@
 <nav class="nav">
     <a class="nav-logo" href="/">
-        <img src="/assets/images/Logo_Nav.png" alt="AVANZA">
+        <img src="assets/images/Logo_Nav.png" alt="AVANZA">
     </a>
     <div class="nav-links">
         <ul>
