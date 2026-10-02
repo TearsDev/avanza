@@ -1,3 +1,9 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 .nav-landing {
     box-sizing: border-box;
     display: flex;
@@ -13,6 +19,13 @@
 .nav-landing_logo img {
     width: 142px;
     height: 71px;
+}
+
+.nav-landing_central {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+    flex-grow: 1;
 }
 
 .nav-landing_link {
@@ -33,7 +46,6 @@
     align-items: center;
     gap: 12px;
 }
-
 
 .btn {
     box-sizing: border-box;
@@ -116,7 +128,7 @@
 .footer-landing_divisor {
     width: 100%;
     height: 1px;
-    background: rgba(255,);
+    background: rgba(255, 255, 255, 0.8);
 }
 
 .footer-landing_bottom {
