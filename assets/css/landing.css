@@ -1,0 +1,61 @@
+.nav-landing {
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    padding: 0 120px;
+    gap: 24px;
+    width: 100%;
+    height: 88px;
+    background: #FFFFFF;
+    border-bottom: 1px solid #E5E7EB;
+}
+
+.nav-landing_logo img {
+    width: 142px;
+    height: 71px;
+}
+
+.nav-landing_link {
+    font-family: 'Inter', sans-serif;
+    font-weight: 500;
+    font-size: 18px;
+    color: #2D3436;
+    text-decoration: none;
+}
+
+.nav-landing_link-activo {
+    font-weight: 600;
+    color: #4A9B8E
+}
+
+.nav-landing_derecha {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+
+.btn {
+    box-sizing: border-box;
+    display: inline-flex;
+    align-items: center;
+    padding: 14px 20px;
+    border-radius: 16px;
+    border: none;
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+    font-size: 16px;
+    text-decoration: none;
+    cursor: pointer;   
+}
+
+.btn-outline {
+    background-color:#FFFFFF;
+    border: 1px solid #4A9B8E;
+    color: #4A9B8E;
+}
+
+.btn-primario {
+    background: #FF8B6A;
+    color: #FFFFFF;
+}
