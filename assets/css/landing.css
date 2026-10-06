@@ -72,6 +72,60 @@
     color: #FFFFFF;
 }
 
+.hero-landing {
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    padding: 72px 120px;
+    gap: 48px;
+    background: #FFFFFF;
+}
+
+.hero-landing_contenido {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 24px;
+}
+
+.hero-landing_titulo {
+    font-family: 'Quicksand', sans-serif;
+    font-weight: 700;
+    font-size: 56px;
+    line-height: 110%;
+    color: #2D3436;
+}
+
+.hero-landing_texto {
+    font-family: 'Inter', sans-serif;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 160%;
+    color: #6B7280;
+}
+
+.hero-landing_botones {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.hero-landing_mock {
+    flex: 1;
+    max-width: 584px;
+    height: 478px;
+    background:#4A9B8E;
+    border-radius: 28px;
+    box-shadow: 0px 16px 40px rgb(0, 0, 0, 0.8);
+    overflow: hidden;
+}
+
+.hero-landing_mock-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
 .footer-landing {
     box-sizing: border-box;
     display: flex;
