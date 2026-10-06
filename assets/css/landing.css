@@ -4,6 +4,12 @@
     box-sizing: border-box;
 }
 
+body {
+    font-family: 'Inter', sans-serif;
+    background: #FAF9F6;
+    color: #2D3436;
+}
+
 .nav-landing {
     box-sizing: border-box;
     display: flex;
