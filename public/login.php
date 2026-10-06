@@ -9,7 +9,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
     $email = $_POST['email'];
     $pdo = conectarDB();
     $stmt = $pdo->prepare('SELECT * FROM usuarios WHERE email = ?');
-    $stmt = $pdo->execute([$_POST['email']]);
+    $stmt->execute([$_POST['email']]);
     $usuario = $stmt->fetch();
 
     if ($usuario && password_verify($_POST['password'], $usuario['password'])) {
@@ -34,6 +34,7 @@ $paginaActual = '';
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Quicksand:wght@700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../assets/css/landing.css">
+    <link rel="stylesheet" href="../assets/css/login.css">
 </head>
 <body>
     <?php require_once __DIR__ . '/../includes/nav-landing.php'; ?>
@@ -95,7 +96,7 @@ $paginaActual = '';
                 <button type="submit" class="btn btn-primario auth_boton">Iniciar Sesión</button>
             </form>
 
-            <div class="auth-divisor">
+            <div class="auth_divisor">
                 <span class="auth_linea"></span>
                 <span class="auth_divisor-texto">o también</span>
                 <span class="auth_linea"></span>

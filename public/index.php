@@ -28,6 +28,43 @@ $paginaActual = 'inicio';
             <img src="../assets/img/hero-mockup.png" alt="Mockup Hero" class="hero-landing_mock-img">
         </div>
     </section>
+
+    <section class="solucion">
+        <h2 class="seccion_titulo">Una plataforma para cada actor del centro</h2>
+        <div class="solucion_tarjetas">
+            <article class="tarjeta">
+                <div class="tarjeta_numero">01</div>
+                <h3 class="tarjeta_titulo">Familias</h3>
+                <p class="tarjeta_texto">Solicitan turnos, ven el calendario, reciben confirmaciones y acceden al recorrido del niño de forma simple y visual.</p>
+                <ul class="lista">
+                    <li class="lista_item"><span class="lista_punto"></span>Pedir turnos y ver disponibilidad</li>
+                    <li class="lista_item"><span class="lista_punto"></span>Confirmar asistencia y cambios</li>
+                    <li class="lista_item"><span class="lista_punto"></span>Ver evoluciones y recordatorios</li>
+                </ul>
+            </article>
+            <article class="tarjeta">
+                <div class="tarjeta_numero">02</div>
+                <h3 class="tarjeta_titulo">Terapeutas</h3>
+                <p class="tarjeta_texto">Registra evoluciones, notas clinicas y objetivos con una estructura clara, sin perder tiempo en coordinacion administrativa.</p>
+                <ul class="lista">
+                    <li class="lista_item"><span class="lista_punto"></span>Registra evoluciones y notas clinicas</li>
+                    <li class="lista_item"><span class="lista_punto"></span>Ver historial clínico completo</li>
+                    <li class="lista_item"><span class="lista_punto"></span>Seguir objetivos y avances</li>
+                </ul>
+            </article>
+            <article class="tarjeta">
+                <div class="tarjeta_numero">03</div>
+                <h3 class="tarjeta_titulo">Administrativos</h3>
+                <p class="tarjeta_texto">Gestionan agenda, confirmaciones, recordatorio y permisos con una vista operativa que reduce el doble de trabajo y errores.</p>
+                <ul class="lista">
+                    <li class="lista_item"><span class="lista_punto"></span>Gestionar agenda y confirmaciones</li>
+                    <li class="lista_item"><span class="lista_punto"></span>Asignar roles y permisos</li>
+                    <li class="lista_item"><span class="lista_punto"></span>Ver indicadores y recordatorios</li>
+                </ul>
+            </article>
+        </div>
+    </section>
+
     <?php require_once __DIR__ . '/../includes/footer-landing.php'; ?>
 </body>
 </html>
