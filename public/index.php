@@ -65,6 +65,20 @@ $paginaActual = 'inicio';
         </div>
     </section>
 
+    <section class="cta_landing">
+        <div class="cta_landing-contenido">
+            <h2 class="cta_landing-titulo">
+                Empezá a ordenar turnos, seguimiento y coordinacion en un solo lugar
+            </h2>
+            <p class="cta_landing-texto">
+                Contactanos y te mostramos como AVANZA puede adaptarse al flujo de tu centro.
+            </p>
+        </div>
+        <div class="cta_landing-botones">
+            <a href="contacto.php" class="cta_boton cta_boton-coral">Contacto</a>
+            <a href="como-usar.php" class="cta_boton cta_boton-blanco">Ver funcionalidades</a>
+        </div>
+    </section>
     <?php require_once __DIR__ . '/../includes/footer-landing.php'; ?>
 </body>
 </html>
