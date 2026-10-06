@@ -15,17 +15,17 @@ $paginaActual = 'inicio';
 <body>
     <?php require_once __DIR__ . '/../includes/nav-landing.php'; ?>
 
-    <section class="hero-landing">
-        <div class="hero-landing_contenido">
-            <h1 class="hero-landing_titulo">Centralizá turnos, seguimiento clínico y coordinación en un solo lugar</h1>
-            <p class="hero-landing_texto">AVANZA reemplaza WhatsApp, planillas sueltas y comunicaciones dispersas por una plataforma pensada para familias, terapeutas y administrativos. Todo el recorrido del niño queda ordenado, visible y facil de seguir.</p>
-            <div class="hero-landing_botones">
-                <a href="login.php" class="btn btn-primario">Iniciar Sesión</a>
-                <a href="contacto.php" class="btn btn-outline">Contacto</a>
+    <section class="hero_landing">
+        <div class="hero_landing-contenido">
+            <h1 class="hero_landing-titulo">Centralizá turnos, seguimiento clínico y coordinación en un solo lugar</h1>
+            <p class="hero_landing-texto">AVANZA reemplaza WhatsApp, planillas sueltas y comunicaciones dispersas por una plataforma pensada para familias, terapeutas y administrativos. Todo el recorrido del niño queda ordenado, visible y facil de seguir.</p>
+            <div class="hero_landing-botones">
+                <a href="login.php" class="btn btn_primario">Iniciar Sesión</a>
+                <a href="contacto.php" class="btn btn_outline">Contacto</a>
             </div>
         </div>
-        <div class="hero-landing_mock">
-            <img src="../assets/img/hero-mockup.png" alt="Mockup Hero" class="hero-landing_mock-img">
+        <div class="hero_landing-mock">
+            <img src="../assets/img/hero-mockup.png" alt="Mockup Hero" class="hero_landing_mock-img">
         </div>
     </section>
 
