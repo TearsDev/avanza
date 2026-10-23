@@ -1,7 +1,6 @@
 CREATE DATABASE avanza CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
 USE avanza;
 
--- Datos del centro (una sola fila, id = 1)
 CREATE TABLE centro (
     id INT PRIMARY KEY DEFAULT 1,
     nombre VARCHAR(100) NOT NULL,
@@ -20,7 +19,6 @@ CREATE TABLE obras_sociales (
     nombre VARCHAR(100) NOT NULL UNIQUE
 );
 
--- Todos los que pueden ingresar al sistema
 CREATE TABLE usuarios (
     id INT AUTO_INCREMENT PRIMARY KEY,
     nombre VARCHAR(100) NOT NULL,
@@ -31,7 +29,6 @@ CREATE TABLE usuarios (
     activo TINYINT(1) NOT NULL DEFAULT 1
 );
 
--- Datos profesionales (1 a 1 con usuarios de rol terapeuta)
 CREATE TABLE terapeutas (
     id_usuario INT PRIMARY KEY,
     id_especialidad INT NOT NULL,
@@ -41,7 +38,6 @@ CREATE TABLE terapeutas (
     FOREIGN KEY (id_especialidad) REFERENCES especialidades(id)
 );
 
--- Horarios de atención: dia 1 = lunes ... 5 = viernes
 CREATE TABLE horarios (
     id INT AUTO_INCREMENT PRIMARY KEY,
     id_terapeuta INT NOT NULL,
@@ -68,7 +64,6 @@ CREATE TABLE pacientes (
     FOREIGN KEY (id_obra_social) REFERENCES obras_sociales(id)
 );
 
--- Qué paciente atiende cada terapeuta (N a N)
 CREATE TABLE asignaciones (
     id_paciente INT NOT NULL,
     id_terapeuta INT NOT NULL,
@@ -77,7 +72,6 @@ CREATE TABLE asignaciones (
     FOREIGN KEY (id_terapeuta) REFERENCES terapeutas(id_usuario) ON DELETE CASCADE
 );
 
--- Sin ON DELETE: un paciente o terapeuta con turnos no se puede eliminar
 CREATE TABLE turnos (
     id INT AUTO_INCREMENT PRIMARY KEY,
     id_paciente INT NOT NULL,
@@ -89,7 +83,6 @@ CREATE TABLE turnos (
     FOREIGN KEY (id_terapeuta) REFERENCES terapeutas(id_usuario)
 );
 
--- Una sesión por turno (1 a 1)
 CREATE TABLE sesiones (
     id INT AUTO_INCREMENT PRIMARY KEY,
     id_turno INT NOT NULL UNIQUE,

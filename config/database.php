@@ -1,15 +1,14 @@
 <?php
 
-function conectarDB(): PDO 
-{
-    $env = parse_ini_file(__DIR__ . '/../.env');
+$servername = "localhost";
+$username = "root";
+$password = "";
+$dbname = "avanza";
 
-    $pdo = new PDO(
-        'mysql:host=' . $env['DB_HOST'] . ';dbname=' . $env['DB_NAME'] . ';charset=utf',
-        $env['DB_USER'],
-        $env['DB_PASS']
-    );
-    $pdo->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
-    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-    return $pdo;
+$conn = new mysqli($servername, $username, $password, $dbname);
+
+if ($conn -> connect_errno) {
+    die("Error de conexion: " . $conn->connect_error);
 }
+
+$conn->set_charset("utf8mb4");
