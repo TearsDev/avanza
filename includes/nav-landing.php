@@ -1,11 +1,10 @@
 <?php
-require_once __DIR__ . '/auth.php';
 $paginaActual = $paginaActual ?? '';
 ?>
 
 <header class="nav_landing">
     <a href="index.php" class="nav_landing-logo">
-        <img src="../assets/img/Avanza-logo.png" alt="AVANZA">
+        <img src="../assets/img/Avanza-Logo.png" alt="AVANZA">
     </a>
     <nav class="nav_landing-central">
         <a href="index.php" class="nav_landing-link <?= $paginaActual === 'inicio' ? 'nav_landing-link-activo' : '' ?>">Inicio</a>

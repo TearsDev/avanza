@@ -4,7 +4,7 @@ if (session_status() === PHP_SESSION_NONE) {
 }
 
 function exigirRol($rol) {
-    if (!isset($_SESSIOn['rol']) || $_SESSION['rol'] !== $rol) {
+    if (!isset($_SESSION['rol']) || $_SESSION['rol'] !== $rol) {
         header('Location: ../login.php');
         exit;
     }

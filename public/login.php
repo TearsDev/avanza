@@ -3,23 +3,33 @@ require_once __DIR__ . '/../includes/auth.php';
 require_once __DIR__ . '/../config/database.php';
 
 $error = '';
-$email = '';
+$usuarioIngresado = '';
 
 if($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $email = $_POST['email'];
+    $usuarioIngresado = trim($_POST['usuario'] ?? '');
+    $password = $_POST['password'] ?? '';
+
     $pdo = conectarDB();
-    $stmt = $pdo->prepare('SELECT * FROM usuarios WHERE email = ?');
-    $stmt->execute([$_POST['email']]);
+    $stmt = $pdo->prepare('SELECT * FROM usuarios WHERE usuario = ?');
+    $stmt->execute([$usuarioIngresado]);
     $usuario = $stmt->fetch();
 
-    if ($usuario && password_verify($_POST['password'], $usuario['password'])) {
-        $_SESSION['id'] = $usuario['id'];
-        $_SESSION['nombre'] = $usuario['nombre'];
-        $_SESSION['rol'] = $usuario['rol'];
-        header('Location: ' . $usuario['rol'] . '/dashboard.php');
-        exit;
+    if ($usuario && password_verify($password, $usuario['password'])) {
+        if(!$usuario['activo']) {
+            $error = 'Tu usuario está inactivo. Consultá con el centro.';
+        } else {
+            session_regenerate_id(true);
+            $_SESSION['id'] = $usuario['id'];
+            $_SESSION['nombre'] = $usuario['nombre'];
+            $_SESSION['rol'] = $usuario['rol'];
+
+            $destino = $usuario['rol'] === 'administrativo' ? 'admin/index.php' : 'terapeuta/index.php';
+            header('Location: ' . $destino);
+            exit;
+        }
+    } else {
+        $error = 'Usuario o contraseña incorrectos.';
     }
-    $error = 'Correo o contraseña incorrectos.';
 }
 
 $paginaActual = '';
@@ -42,7 +52,7 @@ $paginaActual = '';
         <aside class="auth_panel">
             <div class="auth_panel-encabezado">
                 <h2 class="auth_panel-titulo">Toda la evolución del niño ordenada en un solo lugar</h2>
-                <p class="auth_panel-texto">AVANZA es el puente que une a familias, terapeutas y centros de rehabilitación. Diseñado para simplificar la gestion sin perder la calidez humana y profesional que tu equipo necesita.</p>
+                <p class="auth_panel-texto">AVANZA es el puente que une a profesionales y centros de rehabilitación. Diseñado para simplificar la gestión sin perder la calidez humana y profesional que tu equipo necesita.</p>
             </div>
             <div class="auth_ilustracion">
                 <img src="../assets/img/login-ilustracion.png" alt="" class="auth_ilustracion-img">
@@ -50,7 +60,7 @@ $paginaActual = '';
             <div class="auth_highlights">
                 <div class="auth_highlight">
                     <span class="auth_punto auth_punto-coral"></span>
-                    <span class="auth_highlight-texto">Seguimiento Familiar</span>
+                    <span class="auth_highlight-texto">Agenda de turnos</span>
                 </div>
                 <div class="auth_highlight">
                     <span class="auth_punto"></span>
@@ -70,9 +80,9 @@ $paginaActual = '';
                 <?php endif; ?>
 
                 <div class="campo">
-                    <label for="email" class="campo_label">Correo Electronico</label>
+                    <label for="usuario" class="campo_label">Correo Electrónico</label>
                     <div class="campo_input">
-                        <input type="email" id="email" name="email" placeholder="nombre@centro.com" value="<?= htmlspecialchars($email)?>" required>
+                        <input type="text" id="usuario" name="usuario" placeholder="centro.avanza" value="<?= e($usuarioIngresado) ?>" autocomplete="username" required>
                     </div>
                 </div>
 
@@ -85,32 +95,11 @@ $paginaActual = '';
                         </button>
                     </div>
                 </div>
-
-                <div class="auth_opciones">
-                    <label class="auth_recordarme">
-                        <input type="checkbox" name="recordarme">
-                        <span>Recordarme</span>
-                    </label>
-                    <a href="#" class="auth_olvido">¿Olvidaste tu contraseña?</a>
-                </div>
-                <button type="submit" class="btn btn-primario auth_boton">Iniciar Sesión</button>
+                <button type="submit" class="btn btn_primario auth_boton">Iniciar Sesión</button>
+                <p class="auth_ayuda">¿Olvidaste tu contraseña? Pedísela al administrativo del centro.</p>
             </form>
-
-            <div class="auth_divisor">
-                <span class="auth_linea"></span>
-                <span class="auth_divisor-texto">o también</span>
-                <span class="auth_linea"></span>
-            </div>
-
-            <div class="auth_registro">
-                <h3 class="auth_registro-titulo">¿Sos familia nueva en el centro?</h3>
-                <p class="auth_registro-texto">Creá tu cuenta familiar de forma simple para registrar al paciente y solicitar los primeros turnos autorizados.</p>
-                <a href="#" class="auth_registro-link">Crear cuenta familiar <span>→</span></a>
-            </div>
         </section>
-
     </main>
-
     <?php require_once __DIR__ . '/../includes/footer-landing.php'; ?>
     <script src="../assets/js/main.js"></script>
 </body>
