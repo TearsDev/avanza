@@ -1,106 +1,123 @@
-<?php
-require_once __DIR__ . '/../includes/auth.php';
+<?php 
 require_once __DIR__ . '/../config/database.php';
+require_once __DIR__ . '/../includes/auth.php';
+require_once __DIR__ . '/../includes/functions.php';
 
-$error = '';
-$usuarioIngresado = '';
+function irAlPanel($rol) {
+    if ($rol === 'administrativo') {
+        header('Location: admin/index.php');
+    } else {
+        header('Location: terapeuta/index.php');
+    } exit;
+}
 
-if($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $usuarioIngresado = trim($_POST['usuario'] ?? '');
+if (isset($_SESSION['rol'])) {
+    irAlPanel($_SESSION['rol']);
+}
+
+$paginaActual = 'login';
+$usuario = '';
+$tipoError = '';
+
+$mensajes = [
+    'credenciales' => 'Usuario o contraseña incorrectos.',
+    'inactivo' => 'Tu usuario está inactivo. Consultá con el centro.'
+];
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $usuario = trim($_POST['usuario'] ?? '');
     $password = $_POST['password'] ?? '';
 
-    $pdo = conectarDB();
-    $stmt = $pdo->prepare('SELECT * FROM usuarios WHERE usuario = ?');
-    $stmt->execute([$usuarioIngresado]);
-    $usuario = $stmt->fetch();
-
-    if ($usuario && password_verify($password, $usuario['password'])) {
-        if(!$usuario['activo']) {
-            $error = 'Tu usuario está inactivo. Consultá con el centro.';
-        } else {
-            session_regenerate_id(true);
-            $_SESSION['id'] = $usuario['id'];
-            $_SESSION['nombre'] = $usuario['nombre'];
-            $_SESSION['rol'] = $usuario['rol'];
-
-            $destino = $usuario['rol'] === 'administrativo' ? 'admin/index.php' : 'terapeuta/index.php';
-            header('Location: ' . $destino);
-            exit;
-        }
+    $stmt = $conn->prepare('SELECT id, nombre, password, rol, activo FROM usuarios WHERE usuario=?');
+    $stmt->bind_param('s', $usuario);
+    $stmt->execute();
+    $fila = $stmt->get_result()->fetch_assoc();
+    
+    if(!$fila || !password_verify($password, $fila['password'])) {
+        $tipoError = 'credenciales';
+    } elseif (!$fila['activo']) {
+        $tipoError = 'inactivo';
     } else {
-        $error = 'Usuario o contraseña incorrectos.';
+        session_regenerate_id(true);
+        $_SESSION['id'] = $fila['id'];
+        $_SESSION['nombre'] = $fila['nombre'];
+        $_SESSION['rol'] = $fila['rol'];
+        irAlPanel($fila['rol']);
     }
 }
 
-$paginaActual = '';
+$errorUsuario = $tipoError !== '';
+$errorPassword = $tipoError === 'credenciales';
 ?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AVANZA - Iniciar Sesión</title>
+    <title>AVANZA - Iniciar sesión</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Quicksand:wght@700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../assets/css/landing.css">
-    <link rel="stylesheet" href="../assets/css/login.css">
+    <link rel="stylesheet" href="assets/css/landing.css">
+    <link rel="stylesheet" href="assets/css/login.css">
 </head>
 <body>
-    <?php require_once __DIR__ . '/../includes/nav-landing.php'; ?>
-    <main class="auth">
-        <aside class="auth_panel">
-            <div class="auth_panel-encabezado">
-                <h2 class="auth_panel-titulo">Toda la evolución del niño ordenada en un solo lugar</h2>
-                <p class="auth_panel-texto">AVANZA es el puente que une a profesionales y centros de rehabilitación. Diseñado para simplificar la gestión sin perder la calidez humana y profesional que tu equipo necesita.</p>
+    <?php require_once __DIR__ . '/../includes/nav-landing.php';?>
+    <main class="login_seccion">
+        <section class="login_panel">
+            <div class="login_panel-encabezado">
+                <h2 class="login_panel-titulo">Toda la evolución del niño ordenada en un solo lugar</h2>
+                <p class="login_panel-texto">AVANZA es el puente que une a profesionales y centros de rehabilitación. Diseñado para simplificar la gestión sin perder la calidez humana y profesional que tu equipo necesita.</p>
             </div>
-            <div class="auth_ilustracion">
-                <img src="../assets/img/login-ilustracion.png" alt="" class="auth_ilustracion-img">
-            </div>
-            <div class="auth_highlights">
-                <div class="auth_highlight">
-                    <span class="auth_punto auth_punto-coral"></span>
-                    <span class="auth_highlight-texto">Agenda de turnos</span>
+            <img src="assets/img/loginmockup.png" alt="Agenda y evoluciones clínicas" class="login_ilustracion">
+            <div class="login_destacados">
+                <div class="login_destacado">
+                    <span class="login_punto login_punto-coral"></span>
+                    Agenda de turnos
                 </div>
-                <div class="auth_highlight">
-                    <span class="auth_punto"></span>
-                    <span class="auth_highlight-texto">Evoluciones Clínicas</span>
+                <div class="login_destacado">
+                    <span class="login_punto"></span>
+                    Evoluciones Clínicas
                 </div>
             </div>
-        </aside>
+        </section>
 
-        <section class="auth_card">
-            <div class="auth_bienvenida">
-                <h1 class="auth_titulo">¡Hola de nuevo!</h1>
-                <p class="auth_subtitulo">Ingresá a tu panel para gestionar tus turnos o pacientes</p>
+        <section class="login_tarjeta">
+            <div class="login_encabezado">
+                <h1 class="login_titulo">¡Hola de nuevo!</h1>
+                <p class="login_subtitulo">Ingresá a tu panel para gestionar tus turnos o pacientes.</p>
             </div>
-            <form method="post" class="auth_form">
-                <?php if($error): ?>
-                    <p class="auth_error"><?= $error ?></p>
-                <?php endif; ?>
 
-                <div class="campo">
-                    <label for="usuario" class="campo_label">Correo Electrónico</label>
-                    <div class="campo_input">
-                        <input type="text" id="usuario" name="usuario" placeholder="centro.avanza" value="<?= e($usuarioIngresado) ?>" autocomplete="username" required>
+            <form class="login_formulario" method="POST" action="login.php">
+                <div class="login_campos">
+                    <div class="login_campo">
+                        <label class="login_label" for="usuario">Usuario</label>
+                        <div class="input_caja <?= $errorUsuario ? 'input_caja-error' : '' ?>">
+                            <input class="input_elemento" type="text" id="usuario" name="usuario" placeholder="centro.avanza" value="<?= e($usuario) ?>" required>
+                        </div>
+                    </div>
+                    <div class="login_campo">
+                        <label class="login_label" for="password">Contraseña</label>
+                        <div class="input_caja <?= $errorPassword ? 'input_caja-error' : '' ?>">
+                        <input class="input_elemento" type="password" id="password" name="password" placeholder="••••••••" required>
                     </div>
                 </div>
-
-                <div class="campo">
-                    <label for="password" class="campo_label">Contraseña</label>
-                    <div class="campo_input">
-                        <input type="password" id="password" name="password" placeholder="********" required>
-                        <button type="button" class="campo_ojo" data-toggle-password="password" aria-label="Mostrar Contraseña">
-                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#7A8A8B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
-                        </button>
-                    </div>
                 </div>
-                <button type="submit" class="btn btn_primario auth_boton">Iniciar Sesión</button>
-                <p class="auth_ayuda">¿Olvidaste tu contraseña? Pedísela al administrativo del centro.</p>
+
+                <div class="login_acciones">
+                    <?php if ($tipoError !== ''): ?>
+                        <div class="login_error">
+                            <svg class="login_error-icono" viewBox="0 0 24 24"><path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3"/><path d="M12 9v4"/><path d="M12 17h.01"/></svg>
+                            <span class="login_error-texto"><?= e($mensajes[$tipoError]) ?></span>
+                        </div>
+                    <?php endif; ?>
+
+                    <button class="login_boton" type="submit">Iniciar sesión</button>
+                    <p class="login_ayuda">¿Olvidaste tu contraseña? Pedísela al administrativo del centro.</p>
+                </div>
             </form>
         </section>
     </main>
     <?php require_once __DIR__ . '/../includes/footer-landing.php'; ?>
-    <script src="../assets/js/main.js"></script>
 </body>
 </html>
