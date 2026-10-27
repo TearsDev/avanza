@@ -1,7 +1,7 @@
     <footer class="footer_landing">
         <div class="footer_landing-top">
             <div class="footer_landing-marca">
-                <img src="../assets/img/Avanza-Logo-Neg.png" alt="AVANZA">
+                <img src="  assets/img/Avanza-Logo-Neg.png" alt="AVANZA">
                 <p>AVANZA es una plataforma pensada para centros de rehabilitación pediátrica. Centraliza turnos, seguimiento clínico y coordinación en un solo lugar.</p>
             </div>
             <div class="footer_landing-columnas">

@@ -10,7 +10,7 @@ $paginaActual = 'inicio';
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Quicksand:wght@700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../assets/css/landing.css">
+    <link rel="stylesheet" href="assets/css/landing.css">
 </head>
 <body>
     <?php require_once __DIR__ . '/../includes/nav-landing.php'; ?>
@@ -25,7 +25,7 @@ $paginaActual = 'inicio';
             </div>
         </div>
         <div class="hero_landing-mock">
-            <img src="../assets/img/hero-mockup.png" alt="Mockup Hero" class="hero_landing_mock-img">
+            <img src="assets/img/hero-mockup.png" alt="Mockup Hero" class="hero_landing_mock-img">
         </div>
     </section>
 
