@@ -24,3 +24,124 @@
     line-height: 25px;
     color: #2D3436;
 }
+
+.ficha_tarjetas {
+    display: flex;
+    gap: 24px;
+}
+
+.ficha_tarjeta {
+    flex: 1;
+    box-sizing: border-box;
+    padding: 24px 28px;
+    background: #FFFFFF;
+    border: 1px solid #E5E7EB;
+    border-radius: 16px;
+}
+
+.ficha_titulo {
+    margin: 0 0 8px;
+    font-family: 'Quicksand', sans-serif;
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 25px;
+    color: #2D3436;
+}
+
+.ficha_dato {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 0;
+    border-bottom: 1px solid #E5E7EB;
+}
+
+.ficha_dato:last-child {
+    border-bottom: none;
+}
+
+.ficha_etiqueta {
+    font-family: 'Inter', sans-serif;
+    font-size: 13px;
+    line-height: 16px;
+    color: #6B7280;
+}
+
+.ficha_valor {
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 17px;
+    color: #2D3436;
+}
+
+.sesion_contenedor {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    width: 720px;
+    max-width: 100%;
+    margin: 0 auto;
+}
+
+.sesion_resumen {
+    box-sizing: border-box;
+    padding: 8px 24px;
+    background: #FFFFFF;
+    border: 1px solid #E5E7EB;
+    border-radius: 16px;
+}
+
+.sesion_form {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.sesion_tarjeta {
+    box-sizing: border-box;
+    padding: 28px;
+    background: #FFFFFF;
+    border: 1px solid #E5E7EB;
+    border-radius: 16px;
+}
+
+.sesion_notas {
+    box-sizing: border-box;
+    width: 100%;
+    height: 200px;
+    padding: 14px;
+    border: 1px solid #E5E7EB;
+    border-radius: 10px;
+    resize: none;
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    line-height: 17px;
+    color: #2D3436;
+}
+
+.sesion_notas::placeholder {
+    color: #6B7280;
+}
+
+.sesion_acciones {
+    display: flex;
+    justify-content: flex-end;
+    gap: 12px;
+}
+
+.sesion_nota {
+    box-sizing: border-box;
+    width: 100%;
+    height: 200px;
+    padding: 14px;
+    overflow-y: auto;
+    background: #FAF9F6;
+    border: 1px solid #E5E7EB;
+    border-radius: 10px;
+    white-space: pre-wrap;
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    line-height: 17px;
+    color: #2D3436;
+}
