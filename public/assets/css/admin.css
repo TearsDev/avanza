@@ -296,3 +296,33 @@ a {
 .boton_icono-borrar {
   color: #FF8B6A;
 }
+
+.boton_verde {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  padding: 12px 24px;
+  background: #4A9B8E;
+  border: 1.5px solid #4A9B8E;
+  border-radius: 12px;
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 17px;
+  color: #FFFFFF;
+  cursor: pointer;
+}
+
+.boton_gris {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  padding: 12px 24px;
+  background: #FFFFFF;
+  border: 1.5px solid #E5E7EB;
+  border-radius: 12px;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 17px;
+  color: #6B7280;
+}

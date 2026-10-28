@@ -1,0 +1,100 @@
+.alerta_fondo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: #939696;
+}
+
+.alerta_tarjeta {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  width: 440px;
+  padding: 32px;
+  background: #FFFFFF;
+  border-radius: 16px;
+}
+
+.alerta_icono {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: #FFE9E2;
+  color: #FF8B6A;
+}
+
+.alerta_icono .icono {
+  width: 24px;
+  height: 24px;
+}
+
+.alerta_textos {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+
+.alerta_titulo {
+  font-family: 'Quicksand', sans-serif;
+  font-size: 22px;
+  font-weight: 700;
+  line-height: 28px;
+  color: #2D3436;
+}
+
+.alerta_mensaje {
+  font-size: 14px;
+  line-height: 17px;
+  text-align: center;
+  color: #6B7280;
+}
+
+.alerta_resumen {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 100%;
+  padding: 16px;
+  background: #FAF9F6;
+  border-radius: 12px;
+}
+
+.alerta_dato {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 13px;
+  line-height: 16px;
+}
+
+.alerta_etiqueta {
+  font-weight: 400;
+  color: #6B7280;
+}
+
+.alerta_valor {
+  font-weight: 600;
+  color: #2D3436;
+}
+
+.alerta_botones {
+  display: flex;
+  gap: 12px;
+  width: 100%;
+}
+
+.alerta_botones .boton_gris,
+.alerta_botones .boton_coral {
+  flex: 1;
+}
+
+.alerta_botones button {
+  font-family: inherit;
+  cursor: pointer;
+}
