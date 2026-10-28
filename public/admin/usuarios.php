@@ -10,24 +10,19 @@ $paginaActual = 'usuarios';
 $q = trim($_GET['q'] ?? '');
 $rol = $_GET['rol'] ?? '';
 
-if (!in_array($rol, ['administrativo', 'terapeuta'], true)) {
-    $rol = '';
-}
-
 $busqueda = '%' . $q . '%';
+$rolFiltro = ($rol === 'administrativo' || $rol === 'terapeuta') ? $rol : null;
 
-$stmt = $conn->prepare("
-    SELECT id, usuario, nombre, rol, activo
-    FROM usuarios
-    WHERE (usuario LIKE ? OR nombre LIKE ?)
-      AND (? = '' OR rol = ?)
-    ORDER BY (rol = 'administrativo') DESC, id ASC
-");
-$stmt->bind_param("ssss", $busqueda, $busqueda, $rol, $rol);
+$stmt = $conn->prepare("SELECT id, usuario, nombre, rol, activo
+                        FROM usuarios
+                        WHERE (usuario LIKE ? OR nombre LIKE ?)
+                          AND (? IS NULL OR rol = ?)
+                        ORDER BY (rol = 'administrativo') DESC, id");
+$stmt->bind_param("ssss", $busqueda, $busqueda, $rolFiltro, $rolFiltro);
 $stmt->execute();
-$usuarios = $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
+$usuarios = $stmt->get_result();
 
-$total = count($usuarios);
+$total = $usuarios->num_rows;
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -43,31 +38,30 @@ $total = count($usuarios);
 </head>
 <body>
 
-<?php require __DIR__ . '/../../includes/nav-admin.php'; ?>
+<?php require_once __DIR__ . '/../../includes/nav-admin.php'; ?>
 
-<main class="usuarios_contenido">
+<main class="admin_contenido">
 
-    <div class="usuarios_encabezado">
-        <div class="usuarios_titulos">
-            <h1 class="usuarios_titulo">Usuarios</h1>
-            <p class="usuarios_subtitulo">Quién puede ingresar al sistema, con qué rol y si está activo</p>
+    <div class="admin_encabezado">
+        <div>
+            <h1 class="admin_titulo">Usuarios</h1>
+            <p class="admin_subtitulo">Quién puede ingresar al sistema, con qué rol y si está activo</p>
         </div>
         <a href="usuario-form.php" class="boton_coral">+ Nuevo administrativo</a>
     </div>
 
-    <form method="get" class="usuarios_filtros">
-
-        <div class="usuarios_campo usuarios_campo-ancho">
-            <label for="q" class="usuarios_label">Usuario</label>
-            <div class="usuarios_control">
-                <svg class="icono icono-chico" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+    <form method="get" class="filtros">
+        <div class="filtro_campo filtro_campo-grande">
+            <label for="q" class="filtro_label">Usuario</label>
+            <div class="filtro_input">
+                <svg class="icono icono-chico" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
                 <input type="text" id="q" name="q" placeholder="Buscar por usuario o nombre" value="<?= e($q) ?>">
             </div>
         </div>
 
-        <div class="usuarios_campo usuarios_campo-rol">
-            <label for="rol" class="usuarios_label">Rol</label>
-            <div class="usuarios_control">
+        <div class="filtro_campo">
+            <label for="rol" class="filtro_label">Rol</label>
+            <div class="filtro_input filtro_input-estado">
                 <svg class="icono icono-chico" viewBox="0 0 24 24"><polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3"/></svg>
                 <select id="rol" name="rol">
                     <option value="">Todos</option>
@@ -79,49 +73,59 @@ $total = count($usuarios);
 
         <button type="submit" class="boton_verde">Filtrar</button>
         <a href="usuarios.php" class="boton_gris">Limpiar</a>
-
     </form>
 
-    <div class="usuarios_tabla">
+    <div class="panel">
+        <table class="tabla">
+            <thead>
+                <tr>
+                    <th>Usuario</th>
+                    <th>Nombre</th>
+                    <th>Rol</th>
+                    <th>Estado</th>
+                    <th class="col_acciones">Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php if ($total === 0): ?>
+                    <tr>
+                        <td colspan="5" class="tabla_vacio">No se encontraron usuarios.</td>
+                    </tr>
+                <?php endif; ?>
 
-        <div class="usuarios_fila usuarios_fila-encabezado">
-            <span>Usuario</span>
-            <span>Nombre</span>
-            <span>Rol</span>
-            <span>Estado</span>
-            <span class="usuarios_derecha">Acciones</span>
-        </div>
+                <?php while ($u = $usuarios->fetch_assoc()): ?>
+                    <tr>
+                        <td class="tabla_profesional"><?= e($u['usuario']) ?></td>
+                        <td><?= e($u['nombre']) ?></td>
+                        <td>
+                            <?php if ($u['rol'] === 'administrativo'): ?>
+                                <span class="badge_rol-administrativo">Administrativo</span>
+                            <?php else: ?>
+                                <span class="badge_rol-terapeuta">Terapeuta</span>
+                            <?php endif; ?>
+                        </td>
+                        <td>
+                            <?php if ($u['activo']): ?>
+                                <span class="badge_activo">Activo</span>
+                            <?php else: ?>
+                                <span class="badge_inactivo">Inactivo</span>
+                            <?php endif; ?>
+                        </td>
+                        <td class="col_acciones">
+                            <div class="acciones">
+                                <a href="usuario-form.php?id=<?= (int) $u['id'] ?>" class="boton_icono" title="Editar">
+                                    <svg class="icono icono-chico" viewBox="0 0 24 24"><path d="M17 3a2.85 2.83 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5Z"/></svg>
+                                </a>
+                            </div>
+                        </td>
+                    </tr>
+                <?php endwhile; ?>
+            </tbody>
+        </table>
 
-        <?php foreach ($usuarios as $u): ?>
-            <div class="usuarios_fila">
-                <span class="usuarios_usuario"><?= e($u['usuario']) ?></span>
-                <span><?= e($u['nombre']) ?></span>
-                <span>
-                    <?php if ($u['rol'] === 'administrativo'): ?>
-                        <span class="usuarios_badge usuarios_badge-coral">Administrativo</span>
-                    <?php else: ?>
-                        <span class="usuarios_badge usuarios_badge-verde">Terapeuta</span>
-                    <?php endif; ?>
-                </span>
-                <span>
-                    <?php if ($u['activo']): ?>
-                        <span class="usuarios_badge usuarios_badge-verde">Activo</span>
-                    <?php else: ?>
-                        <span class="usuarios_badge usuarios_badge-gris">Inactivo</span>
-                    <?php endif; ?>
-                </span>
-                <span class="usuarios_derecha">
-                    <a href="usuario-form.php?id=<?= (int) $u['id'] ?>" class="usuarios_editar" aria-label="Editar usuario">
-                        <svg class="icono icono-chico" viewBox="0 0 24 24"><path d="M17 3a2.85 2.83 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5Z"/></svg>
-                    </a>
-                </span>
-            </div>
-        <?php endforeach; ?>
-
-        <div class="usuarios_pie">
+        <div class="panel_pie">
             Mostrando <?= $total ?> <?= $total === 1 ? 'usuario' : 'usuarios' ?>
         </div>
-
     </div>
 
 </main>
