@@ -120,3 +120,33 @@ button.boton_coral {
   font-family: inherit;
   cursor: pointer;
 }
+
+.formulario_secciones {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+  padding: 32px;
+}
+
+.formulario_seccion {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.formulario_seccion-borde {
+  padding-top: 28px;
+  border-top: 1px solid #E5E7EB;
+}
+
+.seccion_titulo {
+  font-family: 'Quicksand', sans-serif;
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 22px;
+  color: #2D3436;
+}
+
+.campo_control::placeholder {
+  color: #6B7280;
+}

@@ -326,3 +326,80 @@ a {
   line-height: 17px;
   color: #6B7280;
 }
+
+.filtros {
+  display: flex;
+  align-items: flex-end;
+  gap: 16px;
+  padding: 20px 24px;
+  background: #FFFFFF;
+  border: 1px solid #E5E7EB;
+  border-radius: 16px;
+}
+
+.filtro_campo {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.filtro_campo-grande {
+  flex: 1;
+}
+
+.filtro_label {
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 15px;
+  color: #6B7280;
+}
+
+.filtro_input {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  height: 43px;
+  padding: 0 14px;
+  background: #FFFFFF;
+  border: 1px solid #E5E7EB;
+  border-radius: 10px;
+  color: #6B7280;
+}
+
+.filtro_input input,
+.filtro_input select {
+  flex: 1;
+  min-width: 0;
+  border: none;
+  outline: none;
+  background: transparent;
+  font-family: inherit;
+  font-size: 14px;
+  color: #2D3436;
+}
+
+.panel_pie {
+  padding: 14px 24px;
+  border-top: 1px solid #E5E7EB;
+  font-size: 13px;
+  line-height: 16px;
+  color: #6B7280;
+}
+
+.filtro_input-estado {
+  width: 240px;
+}
+
+.tabla_gris {
+  color: #6B7280;
+}
+
+.badge_activo {
+  background: #E8F4F1;
+  color: #2F7A6E;
+}
+
+.badge_inactivo {
+  background: #F3F4F6;
+  color: #6B7280;
+}

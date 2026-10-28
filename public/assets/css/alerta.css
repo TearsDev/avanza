@@ -98,3 +98,9 @@
   font-family: inherit;
   cursor: pointer;
 }
+
+.alerta_botones button {
+    border: none;
+    cursor: pointer;
+    font-family: inherit;
+}
