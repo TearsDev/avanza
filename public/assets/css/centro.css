@@ -1,0 +1,82 @@
+.centro_tarjeta {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 28px;
+    background: #FFFFFF;
+    border: 1px solid #E5E7EB;
+    border-radius: 16px;
+}
+
+.centro_cabecera {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.centro_titulo {
+    margin: 0;
+    font-family: 'Quicksand', sans-serif;
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 25px;
+    color: #2D3436;
+}
+
+.centro_descripcion {
+    margin: 4px 0 0;
+    font-family: 'Inter', sans-serif;
+    font-size: 13px;
+    line-height: 16px;
+    color: #6B7280;
+}
+
+.centro_guardar {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.centro_aviso {
+    margin: 0;
+    font-family: 'Inter', sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    color: #2F7A6E;
+}
+
+.centro_listas {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    align-items: start;
+}
+
+.centro_fila {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 0;
+    border-bottom: 1px solid #E5E7EB;
+}
+
+.centro_fila:last-child {
+    border-bottom: none;
+}
+
+.centro_nombre {
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 17px;
+    color: #2D3436;
+}
+
+.centro_fila .boton_icono {
+    width: 34px;
+    height: 34px;
+    color: #4A9B8E;
+}
+
+.centro_fila .boton_icono-borrar {
+    color: #FF8B6A;
+}
