@@ -122,7 +122,7 @@ body {
     display: flex;
     flex: 1;
     height: 478px;
-    background:#4A9B8E;
+    background: #FFFFFF;
     border: 1px solid #E5E7EB;
     border-radius: 28px;
     box-shadow: 0px 16px 40px rgba(0, 0, 0, 0.078);
@@ -133,7 +133,8 @@ body {
     display: block;
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    padding: 16px;
+    object-fit: contain;
 }
 
 .footer_landing {
