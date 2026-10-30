@@ -1,0 +1,19 @@
+.badge_rol-administrativo,
+.badge_rol-terapeuta {
+    display: inline-block;
+    padding: 4px 12px;
+    border-radius: 100px;
+    font-size: 12px;
+    font-weight: 600;
+    line-height: 15px;
+}
+
+.badge_rol-administrativo {
+    background: #FFE9E2;
+    color: #C2573A;
+}
+
+.badge_rol-terapeuta {
+    background: #E8F4F1;
+    color: #2F7A6E;
+}

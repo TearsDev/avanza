@@ -1,0 +1,112 @@
+.formulario_contenedor-ancho {
+    max-width: 1200px;
+    width: 100%;
+}
+
+.seccion_cabecera {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.seccion_descripcion {
+    margin: 0;
+    font-family: 'Inter', sans-serif;
+    font-size: 13px;
+    line-height: 16px;
+    color: #6B7280;
+}
+
+.dia {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.dia_nombre {
+    width: 90px;
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 17px;
+    color: #6B7280;
+}
+
+.campo_control-hora {
+    flex: 1;
+    min-width: 0;
+    background: #FAF9F6;
+}
+
+.check {
+    appearance: none;
+    flex: none;
+    width: 18px;
+    height: 18px;
+    margin: 0;
+    background: #FFFFFF;
+    border: 1.5px solid #E5E7EB;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.check:checked {
+    background-color: #4A9B8E;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='3'%3E%3Cpolyline points='20 6 9 17 4 12'/%3E%3C/svg%3E");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 12px;
+    border-color: #4A9B8E;
+}
+
+.pacientes_lista {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+}
+
+.paciente_opcion {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 14px;
+    background: #FFFFFF;
+    border: 1px solid #E5E7EB;
+    border-radius: 10px;
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    line-height: 17px;
+    color: #2D3436;
+    cursor: pointer;
+}
+
+.check:checked + .dia_nombre {
+    color: #2D3436;
+}
+
+.check:checked ~ .campo_control-hora {
+    background: #FFFFFF;
+}
+
+.paciente_opcion:has(.check:checked) {
+    background: #E8F4F1;
+    border-color: #4A9B8E;
+}
+
+@media (max-width: 768px) {
+    .pacientes_lista {
+        grid-template-columns: 1fr;
+    }
+
+    .dia {
+        gap: 8px;
+    }
+
+    .dia_nombre {
+        width: 64px;
+    }
+
+    .campo_control-hora {
+        padding: 0 8px;
+    }
+}

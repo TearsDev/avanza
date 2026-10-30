@@ -1,0 +1,75 @@
+<?php
+$paginaActual = 'inicio';
+?>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AVANZA - Inicio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Quicksand:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/landing.css">
+</head>
+<body>
+    <?php require_once __DIR__ . '/../includes/nav-landing.php'; ?>
+
+    <section class="hero_landing">
+        <div class="hero_landing-contenido">
+            <h1 class="hero_landing-titulo">Centralizá turnos, seguimiento clínico y coordinación en un solo lugar</h1>
+            <p class="hero_landing-texto">AVANZA reemplaza WhatsApp, planillas sueltas y comunicaciones dispersas por una plataforma pensada para profesionales y administrativos. Todo el recorrido del niño queda ordenado, visible y fácil de seguir.</p>
+            <div class="hero_landing-botones">
+                <a href="login.php" class="btn btn_primario">Iniciar sesión</a>
+                <a href="contacto.php" class="btn btn_outline">Contacto</a>
+            </div>
+        </div>
+        <div class="hero_landing-mock">
+            <img src="assets/img/Hero-Avanza.png" alt="Mockup Hero" class="hero_landing_mock-img">
+        </div>
+    </section>
+
+    <section class="solucion">
+        <h2 class="seccion_titulo">Una plataforma pensada para cada actor del centro</h2>
+        <div class="solucion_tarjetas">
+            <article class="tarjeta">
+                <div class="tarjeta_numero">01</div>
+                <h3 class="tarjeta_titulo">Profesionales</h3>
+                <p class="tarjeta_texto">Registran evoluciones, notas clínicas y objetivos con una estructura clara, sin perder tiempo en coordinación administrativa.</p>
+                <ul class="lista">
+                    <li class="lista_item"><span class="lista_punto"></span>Registrar evoluciones y notas clínicas</li>
+                    <li class="lista_item"><span class="lista_punto"></span>Historial clínico completo</li>
+                    <li class="lista_item"><span class="lista_punto"></span>Seguir objetivos y avances</li>
+                </ul>
+            </article>
+            <article class="tarjeta">
+                <div class="tarjeta_numero">02</div>
+                <h3 class="tarjeta_titulo">Administrativos</h3>
+                <p class="tarjeta_texto">Gestión de agenda, confirmaciones, recordatorios y permisos con una vista operativa que reduce doble trabajo y errores.</p>
+                <ul class="lista">
+                    <li class="lista_item"><span class="lista_punto"></span>Gestionar agenda y confirmaciones</li>
+                    <li class="lista_item"><span class="lista_punto"></span>Asignar roles y permisos</li>
+                    <li class="lista_item"><span class="lista_punto"></span>Ver indicadores y recordatorios</li>
+                </ul>
+            </article>
+        </div>
+    </section>
+
+    <section class="cta_landing">
+        <div class="cta_landing-contenido">
+            <h2 class="cta_landing-titulo">
+                Empezá a ordenar turnos, seguimiento y coordinación en un solo lugar
+            </h2>
+            <p class="cta_landing-texto">
+                Contactanos y te mostramos cómo AVANZA puede adaptarse al flujo de tu centro.
+            </p>
+        </div>
+        <div class="cta_landing-botones">
+            <a href="contacto.php" class="cta_boton cta_boton-coral">Contacto</a>
+            <a href="como-usar.php" class="cta_boton cta_boton-blanco">Ver funcionalidades</a>
+        </div>
+    </section>
+    <?php require_once __DIR__ . '/../includes/footer-landing.php'; ?>
+<script src="assets/js/app.js"></script>
+</body>
+</html>

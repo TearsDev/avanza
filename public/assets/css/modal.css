@@ -1,0 +1,81 @@
+.modal_tarjeta {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    box-sizing: border-box;
+    width: 480px;
+    max-width: 90%;
+    padding: 32px;
+    background: #FFFFFF;
+    border-radius: 16px;
+}
+
+.modal_titulos {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.modal_titulo {
+    margin: 0;
+    font-family: 'Quicksand', sans-serif;
+    font-size: 22px;
+    font-weight: 700;
+    line-height: 28px;
+    color: #2D3436;
+}
+
+.modal_descripcion {
+    margin: 0;
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    line-height: 17px;
+    color: #6B7280;
+}
+
+.modal_botones {
+    display: flex;
+    justify-content: flex-end;
+    gap: 12px;
+}
+
+.alerta_botones a.boton_verde {
+    flex: 1;
+}
+
+.modal_tarjeta-ancha {
+    width: 520px;
+}
+
+.modal_campos {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.campo_select {
+    position: relative;
+}
+
+.campo_select select {
+    width: 100%;
+    padding-right: 40px;
+    appearance: none;
+    font-family: 'Inter', sans-serif;
+    color: #2D3436;
+}
+
+.campo_select svg {
+    position: absolute;
+    top: 50%;
+    right: 14px;
+    transform: translateY(-50%);
+    pointer-events: none;
+    color: #6B7280;
+}
+
+@media (max-width: 480px) {
+    .modal_tarjeta {
+        padding: 24px 20px;
+    }
+}
