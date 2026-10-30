@@ -145,3 +145,8 @@
     line-height: 17px;
     color: #2D3436;
 }
+
+.tabla .boton_borde,
+.tabla .boton_verde {
+    white-space: nowrap;
+}
