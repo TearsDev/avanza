@@ -67,3 +67,19 @@
   line-height: 16px;
   color: #6B7280;
 }
+
+@media (max-width: 768px) {
+  .filtros {
+    flex-direction: column;
+    align-items: stretch;
+    padding: 16px;
+  }
+
+  .filtro_input-fecha {
+    width: 100%;
+  }
+
+  .panel_pie {
+    padding: 14px 16px;
+  }
+}

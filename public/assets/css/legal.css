@@ -3,11 +3,12 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 48px 0;
+    padding: 48px 16px;
 }
 
 .legal_articulo {
-    width: 720px;
+    width: 100%;
+    max-width: 720px;
 }
 
 .legal_encabezado {
@@ -103,4 +104,11 @@
 
 .legal_articulo-terminos .legal_cuerpo {
     gap: 18px;
+}
+
+@media (max-width: 768px) {
+    .legal_titulo {
+        font-size: 28px;
+        line-height: 36px;
+    }
 }

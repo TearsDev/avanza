@@ -162,3 +162,49 @@
     height: 100%;
     object-fit: cover;
 }
+
+@media (max-width: 1024px) {
+    .como_contenido {
+        padding: 40px 32px 56px;
+    }
+}
+
+@media (max-width: 768px) {
+    .hero_como {
+        padding: 40px 16px;
+    }
+
+    .hero_como-titulo {
+        font-size: 32px;
+        line-height: 40px;
+    }
+
+    .hero_como-subtitulo {
+        font-size: 18px;
+        line-height: 24px;
+    }
+
+    .como_contenido {
+        padding: 32px 16px 48px;
+    }
+
+    .como_intro-titulo {
+        font-size: 28px;
+        line-height: 36px;
+    }
+
+    .paso {
+        flex-direction: column;
+        align-items: stretch;
+        padding: 20px;
+    }
+
+    .paso_ilustracion {
+        width: 100%;
+    }
+
+    .paso_titulo {
+        font-size: 22px;
+        line-height: 28px;
+    }
+}

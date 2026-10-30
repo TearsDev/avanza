@@ -150,3 +150,39 @@
 .tabla .boton_verde {
     white-space: nowrap;
 }
+
+@media (max-width: 768px) {
+    .nav_admin-datos {
+        display: none;
+    }
+
+    .hoy_cabecera {
+        padding: 16px;
+    }
+
+    .ficha_tarjetas {
+        flex-direction: column;
+        gap: 16px;
+    }
+
+    .ficha_tarjeta {
+        flex: none;
+        padding: 20px;
+    }
+
+    .ficha_dato {
+        gap: 16px;
+    }
+
+    .ficha_valor {
+        text-align: right;
+    }
+
+    .sesion_tarjeta {
+        padding: 20px;
+    }
+
+    .sesion_acciones {
+        flex-wrap: wrap;
+    }
+}

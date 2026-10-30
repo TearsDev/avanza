@@ -73,3 +73,9 @@
     pointer-events: none;
     color: #6B7280;
 }
+
+@media (max-width: 480px) {
+    .modal_tarjeta {
+        padding: 24px 20px;
+    }
+}

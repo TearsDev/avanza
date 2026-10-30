@@ -80,3 +80,13 @@
 .centro_fila .boton_icono-borrar {
     color: #FF8B6A;
 }
+
+@media (max-width: 768px) {
+    .centro_listas {
+        grid-template-columns: 1fr;
+    }
+
+    .centro_tarjeta {
+        padding: 20px;
+    }
+}

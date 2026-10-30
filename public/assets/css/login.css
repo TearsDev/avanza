@@ -231,4 +231,42 @@
     line-height: 17px;
     text-align: center;
     color: #6B7280;
+}
+
+@media (max-width: 1024px) {
+    .login_seccion {
+        flex-direction: column;
+        align-items: center;
+        gap: 32px;
+        padding: 48px 32px 64px;
+    }
+
+    .login_panel,
+    .login_tarjeta {
+        width: 100%;
+        max-width: 560px;
+    }
+
+    .login_tarjeta {
+        order: -1;
+    }
+}
+
+@media (max-width: 480px) {
+    .login_seccion {
+        padding: 24px 16px 48px;
+    }
+
+    .login_panel {
+        padding: 24px;
+    }
+
+    .login_tarjeta {
+        padding: 28px 20px;
+    }
+
+    .login_destacados {
+        flex-direction: column;
+        gap: 12px;
+    }
 }   

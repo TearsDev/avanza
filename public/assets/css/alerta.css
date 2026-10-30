@@ -12,6 +12,7 @@
   align-items: center;
   gap: 20px;
   width: 440px;
+  max-width: 90%;
   padding: 32px;
   background: #FFFFFF;
   border-radius: 16px;
@@ -103,4 +104,14 @@
     border: none;
     cursor: pointer;
     font-family: inherit;
+}
+
+@media (max-width: 480px) {
+  .alerta_tarjeta {
+    padding: 24px 20px;
+  }
+
+  .alerta_botones {
+    flex-direction: column;
+  }
 }

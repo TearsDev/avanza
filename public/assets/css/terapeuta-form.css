@@ -92,3 +92,21 @@
     background: #E8F4F1;
     border-color: #4A9B8E;
 }
+
+@media (max-width: 768px) {
+    .pacientes_lista {
+        grid-template-columns: 1fr;
+    }
+
+    .dia {
+        gap: 8px;
+    }
+
+    .dia_nombre {
+        width: 64px;
+    }
+
+    .campo_control-hora {
+        padding: 0 8px;
+    }
+}

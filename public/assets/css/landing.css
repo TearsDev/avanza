@@ -381,3 +381,121 @@ body {
     background: #FFFFFF;
     color: #4A9B8E;
 }
+
+@media (max-width: 1024px) {
+    .nav_landing,
+    .hero_landing,
+    .solucion,
+    .cta_landing,
+    .footer_landing {
+        padding-left: 32px;
+        padding-right: 32px;
+    }
+
+    .hero_landing-contenido {
+        flex: 1;
+    }
+
+    .hero_landing-titulo {
+        font-size: 44px;
+    }
+}
+
+@media (max-width: 768px) {
+    .nav_landing {
+        flex-wrap: wrap;
+        gap: 12px;
+        height: auto;
+        padding: 12px 16px;
+    }
+
+    .nav_landing-logo img {
+        width: 100px;
+        height: 50px;
+    }
+
+    .nav_landing-central {
+        order: 3;
+        flex-basis: 100%;
+        gap: 20px;
+    }
+
+    .nav_landing-link {
+        font-size: 16px;
+    }
+
+    .nav_landing-derecha {
+        margin-left: auto;
+    }
+
+    .nav_landing-derecha .btn_outline {
+        display: none;
+    }
+
+    .hero_landing {
+        flex-direction: column;
+        align-items: stretch;
+        padding: 40px 16px;
+    }
+
+    .hero_landing-contenido {
+        flex: none;
+    }
+
+    .hero_landing-titulo {
+        font-size: 34px;
+    }
+
+    .hero_landing-mock {
+        flex: none;
+        height: 260px;
+    }
+
+    .solucion {
+        padding: 56px 16px;
+    }
+
+    .seccion_titulo {
+        font-size: 28px;
+        line-height: 36px;
+    }
+
+    .solucion_tarjetas {
+        flex-direction: column;
+    }
+
+    .cta_landing {
+        padding: 40px 16px;
+    }
+
+    .cta_landing-titulo {
+        font-size: 28px;
+        line-height: 36px;
+    }
+
+    .cta_landing-botones {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .footer_landing {
+        padding: 40px 16px;
+    }
+
+    .footer_landing-top,
+    .footer_landing-bottom {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 24px;
+    }
+
+    .footer_landing-columnas {
+        flex-wrap: wrap;
+        gap: 32px;
+    }
+
+    .footer_landing-legal {
+        flex-wrap: wrap;
+        gap: 16px;
+    }
+}

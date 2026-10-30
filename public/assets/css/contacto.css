@@ -211,3 +211,45 @@
     line-height: 22px;
     color: #5C6B6E;
 }
+
+@media (max-width: 768px) {
+    .contacto_formulario,
+    .canales,
+    .horarios {
+        padding: 20px;
+    }
+
+    .formulario_fila {
+        flex-direction: column;
+    }
+
+    .campo {
+        flex: none;
+    }
+
+    .formulario_pie {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .formulario_nota {
+        max-width: none;
+    }
+
+    .formulario_boton {
+        width: 100%;
+    }
+
+    .contacto_canales {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .canales {
+        flex: none;
+    }
+
+    .horarios {
+        width: 100%;
+    }
+}
