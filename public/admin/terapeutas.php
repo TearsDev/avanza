@@ -133,5 +133,6 @@ $total = $terapeutas->num_rows;
 
 </main>
 
+<script src="../assets/js/app.js"></script>
 </body>
 </html>

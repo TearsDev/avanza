@@ -151,5 +151,6 @@ $textoBoton  = $editando ? 'Guardar cambios' : 'Crear usuario';
     </form>
 </main>
 
+<script src="../assets/js/app.js"></script>
 </body>
 </html>

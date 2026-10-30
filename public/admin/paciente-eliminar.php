@@ -123,5 +123,6 @@ $dni = number_format((int) $paciente['dni'], 0, '', '.');
     </div>
 </main>
 
+<script src="../assets/js/app.js"></script>
 </body>
 </html>

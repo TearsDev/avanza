@@ -116,5 +116,6 @@ $titulo = $dias[date('w', $marca)] . ' ' . date('j', $marca) . ' de ' . $meses[d
 
 </main>
 
+<script src="../assets/js/app.js"></script>
 </body>
 </html>

@@ -41,13 +41,13 @@ $paginaActual = 'como-usar';
                 </div>
             </div>
             <div class="paso_ilustracion">
-                <img src="assets/img/como-acceso.png" alt="Ilustración de acceso" class="paso_imagen">
+                <img src="assets/img/accycreacion.png" alt="Ilustración de acceso" class="paso_imagen">
             </div>
         </article>
 
         <article class="paso">
             <div class="paso_ilustracion">
-                <img src="assets/img/como-profesional.png" alt="Ilustración de profesionales" class="paso_imagen">
+                <img src="assets/img/profesionalhtu.png" alt="Ilustración de profesionales" class="paso_imagen">
             </div>
             <div class="paso_texto">
                 <div class="paso_encabezado">
@@ -78,7 +78,7 @@ $paginaActual = 'como-usar';
                 </div>
             </div>
             <div class="paso_ilustracion">
-                <img src="assets/img/como-admin.png" alt="Ilustración de admin" class="paso_imagen">
+                <img src="assets/img/adminhtu.png" alt="Ilustración de admin" class="paso_imagen">
             </div>
         </article>
     </section>
@@ -94,5 +94,6 @@ $paginaActual = 'como-usar';
     </section>
 
     <?php require_once __DIR__ . '/../includes/footer-landing.php'; ?>
+<script src="assets/js/app.js"></script>
 </body>
 </html>

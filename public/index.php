@@ -25,7 +25,7 @@ $paginaActual = 'inicio';
             </div>
         </div>
         <div class="hero_landing-mock">
-            <img src="assets/img/hero-mockup.png" alt="Mockup Hero" class="hero_landing_mock-img">
+            <img src="assets/img/Hero-Avanza.png" alt="Mockup Hero" class="hero_landing_mock-img">
         </div>
     </section>
 
@@ -70,5 +70,6 @@ $paginaActual = 'inicio';
         </div>
     </section>
     <?php require_once __DIR__ . '/../includes/footer-landing.php'; ?>
+<script src="assets/js/app.js"></script>
 </body>
 </html>

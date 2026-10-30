@@ -67,5 +67,6 @@ $paginaActual = 'terminos';
     </main>
 
     <?php require_once __DIR__ . '/../includes/footer-landing.php'; ?>
+<script src="assets/js/app.js"></script>
 </body>
 </html>

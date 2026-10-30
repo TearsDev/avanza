@@ -139,5 +139,6 @@ $urlCancelar = $editando ? 'sesion-ver.php?id=' . $id : 'index.php';
 
 </main>
 
+<script src="../assets/js/app.js"></script>
 </body>
 </html>

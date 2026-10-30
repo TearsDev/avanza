@@ -152,5 +152,6 @@ $obrasSociales = $conn->query("SELECT id, nombre FROM obras_sociales ORDER BY id
 
 </main>
 
+<script src="../assets/js/app.js"></script>
 </body>
 </html>

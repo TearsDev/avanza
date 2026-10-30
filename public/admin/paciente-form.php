@@ -257,5 +257,6 @@ $textoBoton = $editando ? 'Guardar cambios' : 'Guardar paciente';
     </div>
 </main>
 
+<script src="../assets/js/app.js"></script>
 </body>
 </html>
